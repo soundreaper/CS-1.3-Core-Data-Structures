@@ -9,6 +9,7 @@ import string
 # string.ascii_letters is ascii_lowercase + ascii_uppercase
 # string.printable is digits + ascii_letters + punctuation + whitespace
 
+# From Kevin
 CONVERT_STRING = string.digits + string.ascii_lowercase
 BASE_DECODE = {digit: val for val, digit in enumerate(CONVERT_STRING)}
 
@@ -21,7 +22,26 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     
+    # personal decode
+    # digits = digits[::-1]
+    # decoded = 0
+
+    # for exponent, digit in enumerate(digits):
+    #     power = power(base,exponent)
+
+    #     if digit.isalpha():
+    #         digit = digit.lower()
+    #         digit = ord(digit) - 97 + 10
+    #     else:
+    #         digit = int(digit)
+        
+    #     decoded += digit * power
+    
+    # return decoded
+
+    # Kevin's Decode.
     decoded = 0
+
     for i, digit in enumerate(reversed(digits)):
         decoded += (pow(base, i) * BASE_DECODE[digit])
     return decoded
@@ -37,6 +57,20 @@ def encode(number, base):
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
 
+    # personal encode
+    # encoded_val = ""
+    
+    # while number > 0:
+    #     number, remainder = divmod(number, base)
+        
+    #     if remainder >= 10:
+    #         encoded_val += chr(remainder + 87)
+    #     else:
+    #         encoded_val += str(remainder)
+
+    # return encoded_val[::-1]
+
+    # Using Kevin's function
     if number < base:
         return CONVERT_STRING[number]
 
@@ -72,13 +106,6 @@ def main():
     else:
         print('Usage: {} digits base1 base2'.format(sys.argv[0]))
         print('Converts digits from base1 to base2')
-    
-    val = encode(10, 2)
-    print(val)
-
-    val = decode("ff", 16)
-    print(val)
-
 
 if __name__ == '__main__':
     main()
