@@ -38,19 +38,22 @@ class Set(object):
     def intersection(self, other_set):
         return Set([element for element in self.items() if other_set.contains(element)])
 
-    # Time Complexity: O(n) since it relies on the size of the first and second set.
+    # Time Complexity: O(n) since it relies on the size of the first set.
     def difference(self, other_set):
-        new_set = Set()
+        # sorry I said u were wrong Ben ur code is god my bad
+        return Set([element for element in self.items() if not other_set.contains(element)])
+        
+        # new_set = Set()
 
-        for item in self.ht.keys():
-            if other_set.contains(item) == False:
-                new_set.add(item)
+        # for item in self.ht.keys():
+        #     if other_set.contains(item) == False:
+        #         new_set.add(item)
         
-        for item in other_set.ht.keys():
-            if self.contains(item) == False:
-                new_set.add(item)
+        # for item in other_set.ht.keys():
+        #     if self.contains(item) == False:
+        #         new_set.add(item)
         
-        return new_set
+        # return new_set
 
     # Time Complexity: O(n) since it relies on the size of the set we are checking.
     def is_subset(self, other_set):

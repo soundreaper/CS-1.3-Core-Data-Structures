@@ -61,10 +61,12 @@ class SetTest(unittest.TestCase):
 
     def test_difference(self):
         s1 = Set(['a', 'b', 'c', 'd'])
-        s2 = Set(['a', 'd'])
+        s2 = Set(['c', 'd', 'e', 'f'])
         s3 = s1.difference(s2)
+        assert s3.contains('a') == True
         assert s3.contains('b') == True
-        assert s3.contains('c') == True
+        assert s3.contains('e') == False
+        assert s3.contains('f') == False
         assert s3.size() == 2
 
     def test_is_subset(self):
