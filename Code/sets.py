@@ -11,9 +11,11 @@ class Set(object):
     def size(self):
         return self.ht.size
 
+    # Time Complexity: O(1) using a HashTable.
     def contains(self, element):
         return self.ht.contains(element)
 
+    # Time Complexity: O(1) using a HashTable.
     def add(self, element):
         if self.ht.contains(element):
             return False
@@ -21,18 +23,22 @@ class Set(object):
             self.ht.set(element, element)
             return True
 
+    # Time Complexity: O(1) using a HashTable.
     def remove(self, element):
         self.ht.delete(element)
 
     def items(self):
         return self.ht.keys()
 
+    # Time Complexity: O(n) since it relies on the size of the first and second set.
     def union(self, other_set):
         return Set(self.items() + other_set.items())
 
+    # Time Complexity: O(n) since it relies on the size of the first set.
     def intersection(self, other_set):
         return Set([element for element in self.items() if other_set.contains(element)])
 
+    # Time Complexity: O(n) since it relies on the size of the first and second set.
     def difference(self, other_set):
         new_set = Set()
 
@@ -46,6 +52,7 @@ class Set(object):
         
         return new_set
 
+    # Time Complexity: O(n) since it relies on the size of the set we are checking.
     def is_subset(self, other_set):
         for item in other_set.items():
             if not self.contains(item):
