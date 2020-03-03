@@ -36,10 +36,18 @@ class Set(object):
 
     # Time Complexity: O(n) since it relies on the size of the first set.
     def intersection(self, other_set):
-        return Set([element for element in self.items() if other_set.contains(element)])
+        return Set(element for element in self.items() if other_set.contains(element))
+
+    # Time Complexity: O(n) since it relies on the size of the first set.
+    def difference(self, other_set):
+        return Set(element for element in self.items() if not other_set.contains(element))
 
     # Time Complexity: O(n) since it relies on the size of the first and second set.
-    def difference(self, other_set):
+    """
+    The difference between this and just difference is that this one will add items from BOTH the first and second set
+    that differ from each other. The method above only adds items from the first set that are different.
+    """
+    def symmetric_difference(self, other_set):   
         new_set = Set()
 
         for item in self.ht.keys():
@@ -54,7 +62,10 @@ class Set(object):
 
     # Time Complexity: O(n) since it relies on the size of the set we are checking.
     def is_subset(self, other_set):
-        for item in other_set.items():
-            if not self.contains(item):
-                return False
-        return True
+        if self.size() < other_set.size():
+            return False
+        else:
+            for item in other_set.items():
+                if not self.contains(item):
+                    return False
+            return True
