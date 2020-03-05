@@ -4,9 +4,8 @@ import sys
 The below code would load and return a list of the built-in Mac dictionary.
 '''
 # def getDictionary():
-#     d_open = open('/usr/share/dict/words', 'r')
-#     d_raw = d_open.read()
-#     d_open.close()
+#     with open('/usr/share/dict/words') as f:
+#       d_raw = f.read()
 #     d_list = d_raw.split("\n")
 #     return d_list
 
