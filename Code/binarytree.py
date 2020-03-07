@@ -65,7 +65,7 @@ class BinarySearchTree(object):
         downward path from this tree's root node to a descendant leaf node).
         TODO: Best and worst case running time: O(n) because we must traverse the tree to find the "tallest" node."""
         # TODO: Check if root node has a value and if so calculate its height
-        return None if self.is_empty else self.root.height()
+        return 0 if self.is_empty else self.root.height()
 
     def contains(self, item):
         """Return True if this binary search tree contains the given item.
