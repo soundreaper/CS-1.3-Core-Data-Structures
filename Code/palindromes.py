@@ -16,7 +16,6 @@ def is_palindrome(text):
     # return is_palindrome_iterative(text)
     return is_palindrome_recursive(text)
 
-
 def is_palindrome_iterative(text):
     # TODO: implement the is_palindrome function iteratively here
     '''

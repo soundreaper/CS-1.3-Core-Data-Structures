@@ -51,8 +51,8 @@ class LinkedQueue(object):
         if self.is_empty():
             raise ValueError('Queue is empty.')
         
-        data = self.list.head.data
-        self.list.delete = (self.front())
+        data = self.front()
+        self.list.delete(data)
         return data
 
 # Implement ArrayQueue below, then change the assignment at the bottom
