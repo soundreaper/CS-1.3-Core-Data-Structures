@@ -57,19 +57,7 @@ class LinkedList(object):
     def length(self):
         """Return the length of this linked list by traversing its nodes.
         Best and worst case running time: Best and worst case are both O(n). [TODO]"""
-        # Node counter initialized to zero
-        node_count = 0
-        # Start at the head node
-        node = self.head
-        # Loop until the node is None, which is one node too far past the tail
-        while node is not None:
-            # Count one for this node
-            node_count += 1
-            # Skip to the next node
-            node = node.next
-        # Now node_count contains the number of nodes
-        self.size = node_count
-        return node_count
+        return self.size
 
     def get_at_index(self, index):
         """Return the item at the given index in this linked list, or
