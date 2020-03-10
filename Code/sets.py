@@ -32,7 +32,20 @@ class Set(object):
 
     # Time Complexity: O(n) since it relies on the size of the first and second set.
     def union(self, other_set):
+        '''
+        Old version of union, fixed now.
         return Set(self.items() + other_set.items())
+        '''
+
+        new_set = Set()
+
+        for item in self.ht.keys():
+            new_set.add(item)
+        
+        for item in other_set.ht.keys():
+            new_set.add(item)
+        
+        return new_set
 
     # Time Complexity: O(n) since it relies on the size of the first set.
     def intersection(self, other_set):
